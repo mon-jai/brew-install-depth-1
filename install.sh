@@ -899,7 +899,7 @@ ohai "Downloading and installing Homebrew..."
   # make sure symlinks are saved as-is
   execute "git" "config" "--bool" "core.symlinks" "true"
 
-  execute "git" "fetch" "--force" "origin"
+  execute "git" "fetch" "--depth=1" "--force" "origin"
   execute "git" "fetch" "--force" "--tags" "origin"
 
   execute "git" "reset" "--hard" "origin/master"
@@ -935,7 +935,7 @@ ohai "Downloading and installing Homebrew..."
       execute "git" "config" "remote.origin.fetch" "+refs/heads/*:refs/remotes/origin/*"
       execute "git" "config" "--bool" "core.autocrlf" "false"
       execute "git" "config" "--bool" "core.symlinks" "true"
-      execute "git" "fetch" "--force" "origin" "refs/heads/master:refs/remotes/origin/master"
+      execute "git" "fetch" "--depth=1" "--force" "origin" "refs/heads/master:refs/remotes/origin/master"
       execute "git" "remote" "set-head" "origin" "--auto" >/dev/null
       execute "git" "reset" "--hard" "origin/master"
 
